@@ -1,0 +1,10 @@
+; ==> (0 1 1 2 3)
+
+(defun fibo (n printseq)
+  (cond
+    ((= n 1) (if printseq (print 0) 0))
+    ((= n 2) (if printseq (print 1) 1))
+    (T
+     (let ((a (fibo (- n 1) printseq))
+           (b (fibo (- n 2) NIL)))
+       (if printseq (print (+ a b)) (+ a b))))))
